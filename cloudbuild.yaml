@@ -1,4 +1,4 @@
 steps:
   - name: gcr.io/cloud-builders/gsutil
-    args: ["-m", "rsync", "-r", "-c", "-d", "./vision/explore-api", "gs://www.chitikkacakes.com"]
+    args: ["-m", "rsync", "-r", "-c", "-d", "./", "gs://www.chitikkacakes.com"]
     allow_failure: true
