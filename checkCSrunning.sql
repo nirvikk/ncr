@@ -14,3 +14,15 @@ select T.N.value('Key[1]', 'varchar(max)') as 'NodeId'
 from  @XMLContent.nodes('/SerializableDictionaryOfGuidDateTime/ArrayOfEntry/Entry') as T(N) 
 inner join dms..DMS_ServersHierarchy as h (nolock) on h.NodeId = T.N.value('Key[1]', 'varchar(max)')
 order by T.N.value('Value[1]', 'datetime') +getdate() -GETUTCDATE() 
+
+
+--Check last snapshot succeed time
+
+
+select * from dms..DMS_ContextData nolock where ParamKey = 'SnapshotSucceedLastTime'
+
+ 
+
+ 
+
+select count(*) from dms..DMS_TransportMessage nolock
